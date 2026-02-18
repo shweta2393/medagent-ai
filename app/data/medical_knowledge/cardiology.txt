@@ -1,0 +1,77 @@
+DISEASE: Hypertension (High Blood Pressure)
+ICD10: I10 - Essential (primary) hypertension
+CATEGORY: Cardiology
+SYMPTOMS: Often asymptomatic, headache, dizziness, blurred vision, chest pain, shortness of breath, nosebleeds, fatigue
+RISK_FACTORS: Age over 45, obesity, family history, high sodium diet, sedentary lifestyle, smoking, excessive alcohol, chronic stress, sleep apnea, diabetes
+DIAGNOSTIC_CRITERIA: Systolic BP >= 130 mmHg or Diastolic BP >= 80 mmHg on two or more readings (ACC/AHA 2017 Guidelines)
+VITAL_SIGNS_INDICATORS: Elevated blood pressure readings (systolic >= 130 or diastolic >= 80)
+LAB_INDICATORS: Elevated serum creatinine (renal damage), microalbuminuria, elevated glucose (comorbid diabetes), dyslipidemia
+RECOMMENDED_TESTS: Blood pressure monitoring (24-hour ambulatory), Complete blood count (CBC), Basic metabolic panel, Lipid panel, Urinalysis, ECG/EKG, Echocardiogram, Renal function tests
+SPECIALIST: Cardiologist, Nephrologist
+URGENCY: moderate (high if BP > 180/120 - hypertensive crisis)
+TREATMENT_OVERVIEW: Lifestyle modifications (diet, exercise, weight loss), ACE inhibitors, ARBs, calcium channel blockers, diuretics, beta-blockers
+COMPLICATIONS: Stroke, heart attack, heart failure, kidney disease, vision loss, peripheral artery disease
+WHO_GUIDELINE: WHO Guideline for the pharmacological treatment of hypertension in adults (2021) - recommends initiating treatment at BP >= 140/90 in general population, >= 130/80 in high-risk patients
+CDC_MAPPING: CDC Hypertension prevalence data - affects ~47% of US adults; key risk factor for heart disease and stroke (CDC MMWR 2023)
+PUBMED_REFERENCES: PMID:29133354 (2017 ACC/AHA Hypertension Guidelines), PMID:34228751 (WHO 2021 Hypertension Guideline), PMID:26551272 (SPRINT Trial - intensive BP control)
+FOLLOW_UP_QUESTIONS: Do you have a family history of high blood pressure? How often do you check your blood pressure? Do you consume a high-sodium diet? Do you exercise regularly? Are you currently on any blood pressure medications?
+
+---
+
+DISEASE: Coronary Artery Disease (CAD)
+ICD10: I25.10 - Atherosclerotic heart disease of native coronary artery without angina pectoris; I20.9 - Angina pectoris, unspecified
+CATEGORY: Cardiology
+SYMPTOMS: Chest pain (angina), shortness of breath, fatigue, heart palpitations, weakness, dizziness, nausea, sweating, pain radiating to arm/jaw/back
+RISK_FACTORS: High cholesterol, hypertension, diabetes, smoking, obesity, family history of heart disease, age (men > 45, women > 55), sedentary lifestyle
+DIAGNOSTIC_CRITERIA: Positive stress test, coronary angiography showing stenosis > 50%, elevated troponin levels, ECG changes (ST-segment depression or elevation). ACC/AHA chest pain evaluation guidelines.
+VITAL_SIGNS_INDICATORS: Tachycardia, hypotension or hypertension, irregular heart rhythm
+LAB_INDICATORS: Elevated troponin, elevated CRP, elevated LDL cholesterol > 130 mg/dL, low HDL < 40 mg/dL, elevated Lp(a)
+RECOMMENDED_TESTS: ECG/EKG, Stress test (treadmill), Coronary angiography, Echocardiogram, Lipid panel, Troponin levels, CT coronary angiogram, Cardiac MRI, Coronary calcium score
+SPECIALIST: Cardiologist, Interventional Cardiologist
+URGENCY: high (critical if acute myocardial infarction suspected)
+TREATMENT_OVERVIEW: Antiplatelet agents (aspirin, clopidogrel), statins, beta-blockers, ACE inhibitors, nitroglycerin, angioplasty with stenting, coronary artery bypass grafting (CABG)
+COMPLICATIONS: Myocardial infarction, heart failure, arrhythmias, sudden cardiac death
+WHO_GUIDELINE: WHO Package of Essential Noncommunicable Disease Interventions (WHO PEN) - total cardiovascular risk assessment and management protocol for ischemic heart disease
+CDC_MAPPING: CDC Heart Disease Facts - coronary artery disease is the most common type of heart disease, killing ~375,000 Americans annually (CDC NCHS 2023)
+PUBMED_REFERENCES: PMID:31578584 (2019 ACC/AHA Chronic Coronary Disease Guideline), PMID:25260718 (2014 ACC/AHA Non-ST-Elevation ACS Guideline), PMID:23247304 (COURAGE Trial)
+FOLLOW_UP_QUESTIONS: Does the chest pain occur during exertion or at rest? How long does the pain last? Does the pain radiate to your arm, jaw, or back? Do you have a history of high cholesterol? Have you ever had an ECG or stress test?
+
+---
+
+DISEASE: Heart Failure (Congestive Heart Failure)
+ICD10: I50.9 - Heart failure, unspecified; I50.20 - Unspecified systolic (congestive) heart failure; I50.30 - Unspecified diastolic (congestive) heart failure
+CATEGORY: Cardiology
+SYMPTOMS: Shortness of breath (especially lying down - orthopnea), fatigue, swelling in legs/ankles/feet (edema), rapid or irregular heartbeat, persistent cough or wheezing, increased need to urinate at night (nocturia), sudden weight gain, reduced ability to exercise, abdominal swelling (ascites)
+RISK_FACTORS: Coronary artery disease, hypertension, diabetes, obesity, valvular heart disease, history of heart attack, cardiomyopathy, alcohol abuse, smoking, chemotherapy
+DIAGNOSTIC_CRITERIA: Reduced ejection fraction (< 40% for HFrEF), elevated BNP > 100 pg/mL or NT-proBNP > 300 pg/mL, chest X-ray showing pulmonary congestion, echocardiogram findings. Framingham criteria for clinical diagnosis.
+VITAL_SIGNS_INDICATORS: Tachycardia, elevated jugular venous pressure, crackles in lungs, peripheral edema, hypotension in advanced cases, S3 gallop
+LAB_INDICATORS: BNP > 100 pg/mL, NT-proBNP > 300 pg/mL, elevated creatinine, hyponatremia, elevated liver enzymes, anemia
+RECOMMENDED_TESTS: Echocardiogram, BNP/NT-proBNP levels, Chest X-ray, ECG, Complete blood count, Metabolic panel, Thyroid function tests, Cardiac MRI, Iron studies
+SPECIALIST: Cardiologist, Heart Failure Specialist
+URGENCY: high
+TREATMENT_OVERVIEW: ACE inhibitors/ARBs/ARNI (sacubitril-valsartan), beta-blockers, diuretics, aldosterone antagonists (spironolactone), SGLT2 inhibitors, cardiac resynchronization therapy, ICD, heart transplant in severe cases
+COMPLICATIONS: Kidney damage, liver damage, pulmonary hypertension, cardiac cachexia, sudden cardiac arrest
+WHO_GUIDELINE: WHO Model List of Essential Medicines includes ACE inhibitors, beta-blockers, diuretics for heart failure management; WHO CVD-risk management package
+CDC_MAPPING: CDC Heart Failure facts - about 6.7 million American adults have heart failure; leading cause of hospitalization in adults over 65 (CDC 2023)
+PUBMED_REFERENCES: PMID:35363499 (2022 AHA/ACC/HFSA Heart Failure Guideline), PMID:31535829 (DAPA-HF Trial - dapagliflozin), PMID:25176015 (PARADIGM-HF Trial - sacubitril-valsartan)
+FOLLOW_UP_QUESTIONS: Have you noticed sudden weight gain in the past week? Do you wake up at night gasping for breath? How many pillows do you use to sleep? Have you noticed swelling in your legs or abdomen? Do you have a history of heart disease or heart attack?
+
+---
+
+DISEASE: Atrial Fibrillation (AFib)
+ICD10: I48.91 - Unspecified atrial fibrillation; I48.0 - Paroxysmal atrial fibrillation; I48.1 - Persistent atrial fibrillation
+CATEGORY: Cardiology
+SYMPTOMS: Heart palpitations, irregular heartbeat, fatigue, dizziness, shortness of breath, chest discomfort, reduced exercise capacity, lightheadedness, anxiety, syncope
+RISK_FACTORS: Age over 60, hypertension, heart disease, obesity, diabetes, hyperthyroidism, excessive alcohol (holiday heart syndrome), sleep apnea, family history, post-cardiac surgery
+DIAGNOSTIC_CRITERIA: Irregularly irregular rhythm on ECG, absence of P waves, variable ventricular rate. CHA2DS2-VASc score for stroke risk assessment.
+VITAL_SIGNS_INDICATORS: Irregular pulse, tachycardia (rapid ventricular rate > 100 bpm), variable blood pressure, pulse deficit
+LAB_INDICATORS: May show elevated TSH or free T4 (thyroid-related AFib), elevated BNP, abnormal coagulation studies
+RECOMMENDED_TESTS: ECG/EKG, Holter monitor (24-48 hour), Echocardiogram, Thyroid function tests, Complete blood count, Metabolic panel, Coagulation studies (PT/INR), CHA2DS2-VASc scoring, HAS-BLED scoring
+SPECIALIST: Cardiologist, Electrophysiologist
+URGENCY: moderate to high (critical if hemodynamically unstable)
+TREATMENT_OVERVIEW: Rate control (beta-blockers, calcium channel blockers, digoxin), rhythm control (antiarrhythmics, cardioversion), anticoagulation (warfarin, DOACs - apixaban, rivaroxaban, dabigatran, edoxaban), catheter ablation, left atrial appendage closure
+COMPLICATIONS: Stroke (5x increased risk), heart failure, blood clots, cognitive decline, tachycardia-induced cardiomyopathy
+WHO_GUIDELINE: WHO Essential Medicines list includes warfarin, amiodarone for AFib management; WHO CVD risk assessment includes screening for irregular pulse
+CDC_MAPPING: CDC Atrial Fibrillation fact sheet - estimated 12.1 million people in the US will have AFib by 2030; responsible for ~158,000 deaths annually (CDC MMWR 2023)
+PUBMED_REFERENCES: PMID:30686041 (2019 AHA/ACC/HRS AFib Guideline), PMID:19717844 (RE-LY Trial - dabigatran), PMID:21870978 (ARISTOTLE Trial - apixaban)
+FOLLOW_UP_QUESTIONS: How often do you feel palpitations? Do you consume alcohol or caffeine regularly? Have you been diagnosed with thyroid problems? Do you have sleep apnea? Have you ever fainted or felt like you might faint?

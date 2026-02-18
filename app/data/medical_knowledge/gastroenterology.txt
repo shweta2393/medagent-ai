@@ -1,0 +1,77 @@
+DISEASE: Gastroesophageal Reflux Disease (GERD)
+ICD10: K21.0 - Gastro-esophageal reflux disease with esophagitis; K21.9 - Gastro-esophageal reflux disease without esophagitis
+CATEGORY: Gastroenterology
+SYMPTOMS: Heartburn (burning sensation in chest), acid regurgitation, difficulty swallowing (dysphagia), chest pain (non-cardiac), sensation of lump in throat (globus), chronic cough, laryngitis/hoarseness, new or worsening asthma, disrupted sleep, nausea, dental erosion
+RISK_FACTORS: Obesity (BMI > 30), hiatal hernia, pregnancy, smoking, delayed stomach emptying (gastroparesis), connective tissue disorders (scleroderma), large meals late at night, fatty/fried/spicy foods, alcohol, coffee/caffeine, chocolate, NSAIDs/aspirin
+DIAGNOSTIC_CRITERIA: ACG Guidelines: Clinical diagnosis based on typical symptoms (heartburn + regurgitation) responsive to PPI therapy. Upper endoscopy showing erosive esophagitis (LA Classification A-D). 24-hour ambulatory pH monitoring (DeMeester score > 14.7). High-resolution esophageal manometry for motility assessment.
+VITAL_SIGNS_INDICATORS: Generally normal vital signs, obesity may be present
+LAB_INDICATORS: Generally normal; may show iron deficiency anemia (chronic esophagitis/Barrett's), H. pylori tests
+RECOMMENDED_TESTS: Upper endoscopy (EGD) with biopsy (if alarm symptoms or refractory), 24-hour esophageal pH monitoring (off PPI), Esophageal manometry (pre-surgical), Barium swallow, H. pylori testing, Complete blood count (anemia screening)
+SPECIALIST: Gastroenterologist
+URGENCY: low to moderate (high if alarm symptoms: dysphagia, odynophagia, weight loss, GI bleeding, anemia, vomiting)
+TREATMENT_OVERVIEW: ACG Guidelines: Lifestyle modifications (weight loss, elevate head of bed 6-8 inches, avoid trigger foods, eat 3+ hours before bed, smaller meals), step-up or step-down therapy: antacids/H2 blockers (famotidine) for mild, PPIs for moderate-severe (omeprazole, pantoprazole, esomeprazole 4-8 weeks), fundoplication surgery (Nissen) or magnetic sphincter augmentation for refractory
+COMPLICATIONS: Erosive esophagitis, Barrett's esophagus (metaplasia - requires surveillance), esophageal stricture, esophageal adenocarcinoma (Barrett's progression risk 0.5%/year), dental erosion, aspiration pneumonia
+WHO_GUIDELINE: WHO Essential Medicines includes omeprazole and ranitidine for acid-related disorders; GERD management included in WHO primary care guidelines for GI complaints
+CDC_MAPPING: CDC NHANES and survey data estimate GERD affects ~20% of US adults; annual healthcare costs exceed $10 billion; risk factor for esophageal adenocarcinoma
+PUBMED_REFERENCES: PMID:34807279 (2022 ACG Clinical Guideline for GERD), PMID:27363126 (Lyon Consensus - GERD diagnosis criteria), PMID:26444820 (ACG Barrett's Esophagus Guideline)
+FOLLOW_UP_QUESTIONS: How often do you experience heartburn? Does the burning worsen when lying down? What foods seem to trigger your symptoms? Do you have difficulty swallowing? Have you experienced any unintended weight loss? Do you smoke or drink alcohol regularly?
+
+---
+
+DISEASE: Peptic Ulcer Disease
+ICD10: K25.9 - Gastric ulcer, unspecified; K26.9 - Duodenal ulcer, unspecified; K27.9 - Peptic ulcer, site unspecified
+CATEGORY: Gastroenterology
+SYMPTOMS: Burning stomach pain (epigastric), feeling of fullness/bloating, belching, heartburn, nausea, food intolerance (fatty foods), pain relieved by eating or antacids (duodenal ulcer), pain worsened by eating (gastric ulcer), dark/tarry stools (melena), vomiting blood (hematemesis), unexplained weight loss
+RISK_FACTORS: H. pylori infection (most common cause ~60-70%), regular use of NSAIDs/aspirin (second most common cause), smoking, excessive alcohol, physiologic stress (ICU patients), Zollinger-Ellison syndrome, older age, prior ulcer history
+DIAGNOSTIC_CRITERIA: ACG Guidelines: Upper endoscopy (EGD) showing mucosal defect/ulcer crater. Positive H. pylori test (urea breath test sensitivity ~95%, stool antigen test ~95%, histology/rapid urease test on biopsy). Clinical presentation with Forrest classification for bleeding ulcers.
+VITAL_SIGNS_INDICATORS: Generally normal unless bleeding (tachycardia, orthostatic hypotension, pallor, hemodynamic instability)
+LAB_INDICATORS: Low hemoglobin/hematocrit (if bleeding), positive fecal occult blood, positive H. pylori tests, elevated BUN/creatinine ratio (upper GI bleeding), elevated serum gastrin (Zollinger-Ellison)
+RECOMMENDED_TESTS: Upper endoscopy (EGD) with biopsy, H. pylori testing (urea breath test, stool antigen, histology), Complete blood count, Fecal occult blood test, Serum gastrin level (if Zollinger-Ellison suspected), Basic metabolic panel, Type and screen (if bleeding)
+SPECIALIST: Gastroenterologist, General Surgeon (if perforation/obstruction)
+URGENCY: moderate (critical if active bleeding, perforation - free air on X-ray, or gastric outlet obstruction)
+TREATMENT_OVERVIEW: ACG Guidelines: H. pylori eradication (bismuth quadruple therapy: PPI + bismuth + metronidazole + tetracycline x14 days; or concomitant: PPI + clarithromycin + amoxicillin + metronidazole x14 days), PPIs for 4-8 weeks (gastric ulcers 8 weeks, duodenal 4 weeks), discontinue NSAIDs, endoscopic hemostasis for bleeding ulcers (clips, thermal, injection)
+COMPLICATIONS: GI bleeding (most common), perforation (surgical emergency), gastric outlet obstruction, peritonitis, gastric cancer (chronic H. pylori - MALT lymphoma)
+WHO_GUIDELINE: WHO classifies H. pylori as Group 1 carcinogen; WHO Essential Medicines includes amoxicillin, clarithromycin, metronidazole, omeprazole for H. pylori eradication; WHO recommends test-and-treat strategy in high-prevalence regions
+CDC_MAPPING: CDC estimates ~6 million Americans affected by peptic ulcers; H. pylori infects ~35% of US population; NSAID-related GI complications cause ~100,000 hospitalizations annually
+PUBMED_REFERENCES: PMID:28011961 (ACG H. pylori Treatment Guideline 2017), PMID:31676710 (Peptic ulcer disease review - Lancet), PMID:31196864 (AGA Peptic Ulcer Bleeding Guideline)
+FOLLOW_UP_QUESTIONS: Where exactly is your stomach pain located? Does the pain get better or worse after eating? Are you taking any NSAIDs or aspirin regularly? Have you noticed any dark or tarry stools? Have you ever been tested for H. pylori? Do you smoke or drink alcohol?
+
+---
+
+DISEASE: Irritable Bowel Syndrome (IBS)
+ICD10: K58.0 - Irritable bowel syndrome with diarrhea (IBS-D); K58.1 - Irritable bowel syndrome with constipation (IBS-C); K58.2 - Mixed irritable bowel syndrome (IBS-M); K58.9 - Irritable bowel syndrome without diarrhea
+CATEGORY: Gastroenterology
+SYMPTOMS: Abdominal pain/cramping (related to bowel movements), bloating, gas/flatulence, diarrhea (IBS-D), constipation (IBS-C), alternating diarrhea and constipation (IBS-M), mucus in stool, urgency, incomplete evacuation sensation, symptoms worsened by stress or certain foods (FODMAPs)
+RISK_FACTORS: Female sex (2x more common), age under 50, family history of IBS, anxiety/depression (brain-gut axis), history of physical/sexual abuse, food sensitivities (FODMAPs, gluten, lactose), previous gastrointestinal infection (post-infectious IBS ~10% risk after acute gastroenteritis), chronic stress
+DIAGNOSTIC_CRITERIA: Rome IV criteria: Recurrent abdominal pain at least 1 day per week in the last 3 months, associated with 2 or more of: related to defecation, change in stool frequency, change in stool form (Bristol stool scale). Symptom onset >= 6 months before diagnosis. Absence of alarm features (weight loss, rectal bleeding, anemia, fever, nocturnal symptoms).
+VITAL_SIGNS_INDICATORS: Generally normal vital signs; no weight loss or fever (alarm features that suggest alternative diagnosis)
+LAB_INDICATORS: All basic labs typically normal (CBC, CMP, CRP normal). Fecal calprotectin < 50 μg/g (helps exclude IBD). Negative celiac serology (tTG-IgA). Normal thyroid function.
+RECOMMENDED_TESTS: Complete blood count, C-reactive protein/ESR, Fecal calprotectin (to rule out IBD), Celiac disease screening (tTG-IgA + total IgA), Thyroid function tests, Stool studies (if diarrhea-predominant: ova/parasites, C. diff), Colonoscopy (if alarm symptoms or age >= 45 for CRC screening)
+SPECIALIST: Gastroenterologist
+URGENCY: low
+TREATMENT_OVERVIEW: ACG Guidelines: Dietary modifications (low FODMAP diet - strong evidence, fiber supplementation - psyllium for IBS-C), antispasmodics (hyoscine, dicyclomine), peppermint oil. IBS-D: loperamide, rifaximin, eluxadoline, alosetron (severe). IBS-C: linaclotide, lubiprostone, plecanatide, PEG laxatives. Neuromodulators: low-dose TCAs (amitriptyline) for pain, SSRIs. CBT (strong evidence for brain-gut behavioral therapy).
+COMPLICATIONS: Reduced quality of life, anxiety/depression (bidirectional), chronic disability, healthcare utilization (IBS accounts for 25-50% of GI referrals)
+WHO_GUIDELINE: WHO ICD-11 functional gastrointestinal disorders classification; WHO recognizes IBS as a significant cause of global disability and healthcare burden; management included in WHO primary care guidelines
+CDC_MAPPING: CDC estimates IBS affects 10-15% of US adults; more common in women; accounts for 3.1 million outpatient visits annually; significant economic burden from absenteeism and healthcare costs
+PUBMED_REFERENCES: PMID:33830062 (2021 ACG IBS Guideline), PMID:27144617 (Rome IV Criteria), PMID:27159638 (Low FODMAP diet evidence - Lancet Gastroenterology)
+FOLLOW_UP_QUESTIONS: How long have you been experiencing these symptoms? Is your abdominal pain related to bowel movements? Do you have more diarrhea or constipation? Have you noticed any blood in your stool or unintended weight loss? Do your symptoms get worse with stress? Have you tried any dietary changes?
+
+---
+
+DISEASE: Acute Appendicitis
+ICD10: K35.80 - Unspecified acute appendicitis without abscess; K35.20 - Acute appendicitis with generalized peritonitis; K35.30 - Acute appendicitis with localized peritonitis
+CATEGORY: Gastroenterology / General Surgery
+SYMPTOMS: Sudden pain starting around navel (periumbilical) then migrating to right lower quadrant (classically over 12-24 hours), pain worsening with movement/coughing/sneezing, nausea, vomiting (after pain onset), loss of appetite (anorexia), low-grade fever, abdominal bloating, constipation or diarrhea, inability to pass gas
+RISK_FACTORS: Age 10-30 (peak incidence), male sex (lifetime risk 8.6% males, 6.7% females), family history, low-fiber diet, appendiceal obstruction (fecalith, lymphoid hyperplasia)
+DIAGNOSTIC_CRITERIA: Clinical: RLQ tenderness at McBurney's point, positive Rovsing's sign, positive psoas sign, positive obturator sign, rebound tenderness. Alvarado score >= 7 (high probability). CT abdomen: enlarged appendix > 6mm diameter with periappendiceal fat stranding, appendicolith, wall thickening. Ultrasound: non-compressible appendix > 6mm (preferred in children/pregnancy).
+VITAL_SIGNS_INDICATORS: Low-grade fever (99-100.5°F / 37.2-38°C, higher if perforation), tachycardia, localized peritoneal signs, guarding
+LAB_INDICATORS: Elevated WBC (10,000-18,000, > 18,000 suggests perforation), elevated CRP (> 10 mg/L), left shift (> 75% neutrophils), elevated bilirubin (appendiceal perforation marker)
+RECOMMENDED_TESTS: Complete blood count with differential, C-reactive protein, CT abdomen/pelvis with IV contrast (sensitivity 98%), Urinalysis (to rule out UTI/kidney stone), Abdominal ultrasound (preferred first-line in children, pregnant women), Pregnancy test (women of childbearing age), Lactate (if sepsis concern)
+SPECIALIST: General Surgeon, Emergency Medicine, Pediatric Surgeon (children)
+URGENCY: critical (surgical emergency - risk of perforation increases significantly after 36-72 hours)
+TREATMENT_OVERVIEW: SAGES/EAES Guidelines: Laparoscopic appendectomy (gold standard - preferred over open). IV antibiotics perioperatively (cefoxitin or piperacillin-tazobactam). NPO status. Select uncomplicated cases may be managed with antibiotics alone (CODA trial evidence), but recurrence risk ~30-40%. Interval appendectomy for appendiceal abscess after percutaneous drainage and antibiotics.
+COMPLICATIONS: Perforation (15-30% at presentation), peritonitis, abscess formation (peri-appendiceal, pelvic), sepsis, bowel obstruction, wound infection, stump appendicitis
+WHO_GUIDELINE: WHO Surgical Care at the District Hospital manual includes appendectomy as an essential surgical procedure; WHO Emergency and Essential Surgical Care (EESC) project identifies appendicitis as a priority condition requiring timely surgical intervention
+CDC_MAPPING: CDC emergency department data - appendicitis is one of the most common surgical emergencies; approximately 300,000 appendectomies performed annually in the US; lifetime risk ~7-8%
+PUBMED_REFERENCES: PMID:32412811 (CODA Trial - antibiotics vs appendectomy), PMID:25706097 (SAGES Guideline for appendectomy), PMID:33417513 (Appendicitis diagnosis and management review - JAMA)
+FOLLOW_UP_QUESTIONS: When did the pain start and where? Has the pain moved from around your navel to the right lower side? Have you had any nausea or vomiting? Have you lost your appetite? Do you have a fever? Is the pain constant or does it come and go?

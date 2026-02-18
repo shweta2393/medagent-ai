@@ -1,0 +1,57 @@
+DISEASE: Type 2 Diabetes Mellitus
+ICD10: E11.9 - Type 2 diabetes mellitus without complications; E11.65 - Type 2 diabetes mellitus with hyperglycemia; E11.40 - Type 2 diabetes mellitus with diabetic neuropathy, unspecified
+CATEGORY: Endocrinology
+SYMPTOMS: Increased thirst (polydipsia), frequent urination (polyuria), increased hunger (polyphagia), fatigue, blurred vision, slow-healing wounds, frequent infections (candidiasis, UTIs), numbness/tingling in hands or feet (peripheral neuropathy), dark patches of skin (acanthosis nigricans), unintended weight loss
+RISK_FACTORS: Obesity (BMI >= 30), age over 45, family history of diabetes, sedentary lifestyle, history of gestational diabetes, polycystic ovary syndrome (PCOS), prediabetes (HbA1c 5.7-6.4%), ethnicity (higher in African American, Hispanic, Native American, Asian American)
+DIAGNOSTIC_CRITERIA: ADA criteria: Fasting blood glucose >= 126 mg/dL (7.0 mmol/L), HbA1c >= 6.5% (48 mmol/mol), 2-hour OGTT >= 200 mg/dL (11.1 mmol/L), random blood glucose >= 200 mg/dL with classic symptoms. Two abnormal tests required for diagnosis in asymptomatic patients.
+VITAL_SIGNS_INDICATORS: Obesity (elevated BMI), hypertension (common comorbidity), acanthosis nigricans on exam, diabetic foot findings
+LAB_INDICATORS: Fasting glucose >= 126 mg/dL, HbA1c >= 6.5%, elevated triglycerides (> 150 mg/dL), low HDL cholesterol (< 40 men, < 50 women), elevated microalbumin (nephropathy), elevated creatinine
+RECOMMENDED_TESTS: Fasting blood glucose, HbA1c, Oral glucose tolerance test (OGTT), Lipid panel, Kidney function tests (creatinine, eGFR, urine albumin-to-creatinine ratio), Comprehensive metabolic panel, Thyroid function tests, Dilated eye exam, C-peptide, GAD antibodies (to differentiate from Type 1)
+SPECIALIST: Endocrinologist, Diabetologist, Ophthalmologist (retinal screening)
+URGENCY: moderate (high if DKA or hyperosmolar hyperglycemic state - HHS)
+TREATMENT_OVERVIEW: ADA Standards of Care: Lifestyle modifications (diet, exercise, weight loss of 5-7%), Metformin (first-line), SGLT2 inhibitors (empagliflozin, dapagliflozin - CV/renal benefit), GLP-1 RAs (semaglutide, liraglutide - weight/CV benefit), DPP-4 inhibitors, sulfonylureas, insulin therapy (basal then basal-bolus). Target HbA1c < 7% for most adults.
+COMPLICATIONS: Diabetic retinopathy, nephropathy, neuropathy, cardiovascular disease, diabetic foot ulcers/amputations, infections, DKA, hyperosmolar state
+WHO_GUIDELINE: WHO Global report on diabetes (2016); WHO Essential Medicines includes metformin, glibenclamide, insulin; WHO estimates 422 million adults with diabetes globally; WHO package of essential NCD interventions for diabetes screening and management
+CDC_MAPPING: CDC National Diabetes Statistics Report (2022) - 37.3 million Americans (11.3%) have diabetes; Type 2 accounts for 90-95%; 7th leading cause of death in US; estimated cost $327 billion annually
+PUBMED_REFERENCES: PMID:36702600 (ADA Standards of Care 2023), PMID:26378978 (EMPA-REG OUTCOME Trial - empagliflozin), PMID:31535829 (DAPA-CKD Trial), PMID:28605608 (SUSTAIN-6 Trial - semaglutide)
+FOLLOW_UP_QUESTIONS: Do you have a family history of diabetes? What is your typical diet like? How often do you exercise? Have you been told you have prediabetes? Do you have any numbness or tingling in your extremities? When was your last blood sugar or HbA1c test?
+
+---
+
+DISEASE: Hypothyroidism
+ICD10: E03.9 - Hypothyroidism, unspecified; E06.3 - Autoimmune thyroiditis (Hashimoto's)
+CATEGORY: Endocrinology
+SYMPTOMS: Fatigue, weight gain, cold intolerance, constipation, dry skin, hair loss (diffuse alopecia), brittle nails, muscle weakness, muscle aches and cramps, depression, brain fog (difficulty concentrating), puffy face (myxedema), hoarse voice, elevated cholesterol, heavy or irregular menstrual periods (menorrhagia), joint pain/stiffness, bradycardia
+RISK_FACTORS: Female sex (5-8x more common), age over 60, autoimmune disease (Hashimoto's thyroiditis - most common cause), family history of thyroid disease, previous thyroid surgery or radioactive iodine treatment, head/neck radiation, medications (lithium, amiodarone, checkpoint inhibitors), iodine deficiency (globally)
+DIAGNOSTIC_CRITERIA: ATA Guidelines: Elevated TSH (> 4.5 mIU/L) with low free T4 (< 0.8 ng/dL) = overt hypothyroidism. Subclinical hypothyroidism: elevated TSH with normal free T4. Positive TPO antibodies confirm autoimmune etiology (Hashimoto's).
+VITAL_SIGNS_INDICATORS: Bradycardia (HR < 60), hypothermia, weight gain, delayed relaxation of deep tendon reflexes (Woltman sign), dry coarse skin, periorbital edema
+LAB_INDICATORS: Elevated TSH, low free T4, elevated TPO antibodies (> 35 IU/mL in Hashimoto's), elevated cholesterol (total and LDL), elevated CK, normocytic anemia, hyponatremia
+RECOMMENDED_TESTS: TSH (most sensitive initial test), Free T4, Free T3, Thyroid peroxidase antibodies (TPO Ab), Thyroglobulin antibodies, Lipid panel, Complete blood count, Metabolic panel, Thyroid ultrasound (if nodule/goiter)
+SPECIALIST: Endocrinologist
+URGENCY: low to moderate (critical if myxedema coma - altered consciousness, hypothermia, bradycardia)
+TREATMENT_OVERVIEW: ATA Guidelines: Levothyroxine (synthetic T4) - standard replacement, dosed at 1.6 mcg/kg/day, taken on empty stomach 30-60 minutes before breakfast. Titrate based on TSH every 6-8 weeks. Target TSH 0.5-2.5 mIU/L for most patients. Liothyronine (T3) combination therapy considered in select cases.
+COMPLICATIONS: Myxedema coma (mortality ~50%), cardiovascular disease (accelerated atherosclerosis), peripheral neuropathy, infertility, birth defects, mental health issues, hyperlipidemia
+WHO_GUIDELINE: WHO recommends universal salt iodization for iodine deficiency prevention; WHO Essential Medicines includes levothyroxine; global estimates of thyroid dysfunction prevalence vary by iodine status of populations
+CDC_MAPPING: CDC NHANES data - hypothyroidism affects ~4.6% of the US population (12 years and older); more common in women and those over 60; Hashimoto's thyroiditis is the most common autoimmune disorder
+PUBMED_REFERENCES: PMID:25266247 (2014 ATA Guidelines for Hypothyroidism), PMID:28056690 (Thyroid hormone replacement systematic review), PMID:28983485 (Subclinical hypothyroidism management)
+FOLLOW_UP_QUESTIONS: Have you had your thyroid levels checked before? Do you have a family history of thyroid disease? Are you taking any medications that might affect thyroid function? Have you had any thyroid surgery or radiation? Do you have other autoimmune conditions? Are you pregnant or planning to become pregnant?
+
+---
+
+DISEASE: Hyperthyroidism
+ICD10: E05.90 - Thyrotoxicosis, unspecified; E05.00 - Thyrotoxicosis with diffuse goiter (Graves' disease); E05.10 - Thyrotoxicosis with toxic single thyroid nodule
+CATEGORY: Endocrinology
+SYMPTOMS: Weight loss despite increased appetite, rapid heartbeat (tachycardia > 100 bpm), anxiety, irritability, tremor (fine resting tremor of hands), sweating, heat intolerance, frequent bowel movements, menstrual changes (oligomenorrhea), fatigue, muscle weakness (proximal myopathy), difficulty sleeping, thinning skin, fine/brittle hair, bulging eyes (Graves' ophthalmopathy - proptosis), pretibial myxedema
+RISK_FACTORS: Female sex (5-10x more common), family history of thyroid/autoimmune disease, autoimmune disorders (Graves' disease is most common cause 60-80%), excess iodine intake (iodine-induced thyrotoxicosis), age 20-50, recent pregnancy (postpartum thyroiditis), smoking (for Graves' ophthalmopathy)
+DIAGNOSTIC_CRITERIA: ATA Guidelines: Low TSH (< 0.4 mIU/L) with elevated free T4 and/or free T3. Thyroid receptor antibodies (TRAb/TSI) positive confirms Graves' disease. Radioactive iodine uptake: diffusely elevated in Graves', focal in toxic nodule, low in thyroiditis.
+VITAL_SIGNS_INDICATORS: Tachycardia (resting HR > 100), systolic hypertension with wide pulse pressure, weight loss, tremor, warm moist skin, lid lag, hyperreflexia, atrial fibrillation
+LAB_INDICATORS: Low/suppressed TSH (< 0.1 mIU/L), elevated free T4, elevated free T3, positive TSI/TRAb antibodies in Graves', elevated alkaline phosphatase, mild hypercalcemia
+RECOMMENDED_TESTS: TSH, Free T4, Free T3, Thyroid receptor antibodies (TRAb/TSI), Thyroid peroxidase antibodies, Radioactive iodine uptake and scan, Thyroid ultrasound with Doppler, Complete blood count (baseline before antithyroid drugs), Liver function tests, ECG
+SPECIALIST: Endocrinologist
+URGENCY: moderate (critical if thyroid storm - fever > 104°F, tachycardia > 140, altered mental status, Burch-Wartofsky score > 45)
+TREATMENT_OVERVIEW: ATA 2016 Guidelines: Antithyroid medications (methimazole preferred; propylthiouracil for first trimester pregnancy and thyroid storm), radioactive iodine (I-131) ablation, thyroidectomy (surgical). Beta-blockers (propranolol) for symptom control. Treatment choice depends on patient preference, severity, goiter size, and pregnancy status.
+COMPLICATIONS: Thyroid storm (mortality 10-30%), atrial fibrillation, osteoporosis, heart failure, Graves' ophthalmopathy (vision loss), pregnancy complications (miscarriage, preeclampsia), agranulocytosis from antithyroid drugs
+WHO_GUIDELINE: WHO Essential Medicines includes propylthiouracil and carbimazole for thyrotoxicosis management; WHO notes Graves' disease as most common cause of hyperthyroidism in iodine-sufficient areas
+CDC_MAPPING: CDC/NHANES data - hyperthyroidism affects ~1.2% of the US population; Graves' disease accounts for majority of cases; higher prevalence in women aged 20-50
+PUBMED_REFERENCES: PMID:27521067 (2016 ATA Guidelines for Hyperthyroidism and Thyrotoxicosis), PMID:18544625 (Antithyroid drug therapy systematic review), PMID:30428785 (Graves' ophthalmopathy management - EUGOGO guidelines)
+FOLLOW_UP_QUESTIONS: Have you experienced unexplained weight loss? Do you feel your heart racing frequently? Have you noticed tremor in your hands? Do you feel unusually hot or sweaty? Have you had any eye changes or vision problems? Do you have a family history of thyroid disease?

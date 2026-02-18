@@ -1,0 +1,77 @@
+DISEASE: Pneumonia
+ICD10: J18.9 - Pneumonia, unspecified organism; J13 - Pneumonia due to Streptococcus pneumoniae; J15.9 - Unspecified bacterial pneumonia
+CATEGORY: Pulmonology / Respiratory
+SYMPTOMS: Cough with phlegm (yellow/green/bloody), fever, chills, shortness of breath, chest pain when breathing or coughing, fatigue, nausea, vomiting, diarrhea, confusion (especially in older adults), sweating, rapid shallow breathing
+RISK_FACTORS: Age over 65 or under 2, weakened immune system, chronic lung disease (COPD, asthma), smoking, hospitalization (HAP/VAP), difficulty swallowing, recent viral respiratory infection
+DIAGNOSTIC_CRITERIA: Chest X-ray showing infiltrates/consolidation, elevated WBC count, positive sputum culture, clinical presentation with fever + productive cough + abnormal breath sounds (crackles/bronchial breathing). CURB-65 severity score for management decisions.
+VITAL_SIGNS_INDICATORS: Fever (> 100.4°F/38°C), tachycardia (HR > 100), tachypnea (respiratory rate > 20), low oxygen saturation (< 95%), hypotension in severe cases (systolic < 90)
+LAB_INDICATORS: Elevated WBC (> 11,000), elevated CRP (> 20 mg/L), elevated procalcitonin (> 0.25 ng/mL suggests bacterial), positive blood cultures, elevated lactate (severe sepsis)
+RECOMMENDED_TESTS: Chest X-ray, Complete blood count, Blood cultures (x2 sets), Sputum culture and sensitivity, Pulse oximetry, Procalcitonin level, CT chest (if complicated), Legionella and pneumococcal urinary antigens, ABG (if severe)
+SPECIALIST: Pulmonologist, Infectious Disease Specialist
+URGENCY: high
+TREATMENT_OVERVIEW: Antibiotics (community-acquired: amoxicillin, azithromycin, fluoroquinolones per ATS/IDSA guidelines; hospital-acquired: broader spectrum - piperacillin-tazobactam, meropenem), antivirals if viral cause, supportive care (oxygen, fluids, rest)
+COMPLICATIONS: Bacteremia, pleural effusion, empyema, lung abscess, respiratory failure, sepsis, ARDS
+WHO_GUIDELINE: WHO Revised classification and treatment of pneumonia in children (2014); WHO Pocket Book of Hospital Care for Children - key guidelines for antibiotic selection in resource-limited settings
+CDC_MAPPING: CDC Pneumonia key facts - pneumonia accounts for ~1.3 million emergency department visits annually in the US; #1 cause of death in children under 5 worldwide (CDC 2023)
+PUBMED_REFERENCES: PMID:31573350 (2019 ATS/IDSA Community-Acquired Pneumonia Guideline), PMID:27418577 (2016 IDSA/ATS HAP/VAP Guideline), PMID:25504019 (Procalcitonin-guided antibiotic therapy)
+FOLLOW_UP_QUESTIONS: When did the cough start? What color is the phlegm? Have you had a recent cold or flu? Have you been hospitalized recently? Do you have any chronic lung conditions? Have you received pneumonia or flu vaccines?
+
+---
+
+DISEASE: Asthma
+ICD10: J45.20 - Mild intermittent asthma, uncomplicated; J45.30 - Mild persistent asthma; J45.40 - Moderate persistent asthma; J45.50 - Severe persistent asthma; J45.901 - Unspecified asthma with (acute) exacerbation
+CATEGORY: Pulmonology / Respiratory
+SYMPTOMS: Wheezing, shortness of breath, chest tightness, coughing (especially at night or early morning), difficulty breathing during exercise, recurrent episodes triggered by allergens/cold air/exercise, intercostal retractions during severe attacks
+RISK_FACTORS: Family history of asthma or allergies (atopic triad), childhood respiratory infections (RSV), exposure to allergens (dust mites, mold, pet dander, pollen), occupational irritants, smoking or secondhand smoke, obesity, GERD
+DIAGNOSTIC_CRITERIA: Reversible airflow obstruction on spirometry (FEV1 improvement >= 12% and 200 mL after bronchodilator), peak flow variability > 20%, positive methacholine challenge test (PC20 < 8 mg/mL). GINA classification for severity and control.
+VITAL_SIGNS_INDICATORS: Tachypnea, wheezing on auscultation, prolonged expiratory phase, use of accessory muscles, low SpO2 during attacks, pulsus paradoxus > 12 mmHg (severe)
+LAB_INDICATORS: Elevated blood eosinophils (> 300 cells/μL), elevated total IgE, elevated FeNO (> 25 ppb in adults), positive allergen-specific IgE
+RECOMMENDED_TESTS: Spirometry with bronchodilator reversibility, Peak flow monitoring, Allergy testing (skin prick or specific IgE), Chest X-ray, Exhaled nitric oxide (FeNO) test, Complete blood count (eosinophil count), Methacholine challenge test
+SPECIALIST: Pulmonologist, Allergist/Immunologist
+URGENCY: moderate (high during acute exacerbation with SpO2 < 92%)
+TREATMENT_OVERVIEW: Quick-relief: short-acting beta-agonists (albuterol/salbutamol). Long-term control per GINA step therapy: low-dose ICS (step 2), ICS-LABA (step 3-4), high-dose ICS-LABA + LAMA (step 4-5), biologics for severe asthma (omalizumab anti-IgE, dupilumab anti-IL4/13, mepolizumab anti-IL5)
+COMPLICATIONS: Status asthmaticus, airway remodeling, respiratory failure, pneumothorax, reduced quality of life, medication side effects
+WHO_GUIDELINE: WHO Essential Medicines includes salbutamol and beclometasone for asthma; GINA (Global Initiative for Asthma) 2023 report - stepwise approach to asthma management
+CDC_MAPPING: CDC Asthma surveillance data - affects ~25 million Americans (~8% prevalence); accounts for 1.6 million emergency department visits annually; significant disparity in minority populations (CDC NCHS 2023)
+PUBMED_REFERENCES: PMID:30724302 (GINA 2019 Strategy Report), PMID:29273423 (Anti-IL5 biologics meta-analysis), PMID:30779714 (Dupilumab LIBERTY ASTHMA Trial)
+FOLLOW_UP_QUESTIONS: How often do you experience wheezing or shortness of breath? Do your symptoms worsen at night? What triggers seem to make your symptoms worse? Do you have known allergies? Have you ever used an inhaler? Do you have a family history of asthma or allergies?
+
+---
+
+DISEASE: Chronic Obstructive Pulmonary Disease (COPD)
+ICD10: J44.1 - Chronic obstructive pulmonary disease with (acute) exacerbation; J44.9 - Chronic obstructive pulmonary disease, unspecified; J43.9 - Emphysema, unspecified
+CATEGORY: Pulmonology / Respiratory
+SYMPTOMS: Chronic cough, sputum production (especially morning), shortness of breath (especially during physical activity), wheezing, chest tightness, frequent respiratory infections, fatigue, unintended weight loss, swelling in ankles/feet/legs (cor pulmonale), barrel chest
+RISK_FACTORS: Smoking (primary cause - 80-90% of COPD), long-term exposure to lung irritants (air pollution, chemical fumes, dust), alpha-1 antitrypsin deficiency (genetic), age over 40, history of asthma, biomass fuel exposure
+DIAGNOSTIC_CRITERIA: Post-bronchodilator FEV1/FVC ratio < 0.70 on spirometry (GOLD criteria). GOLD classification: Stage 1 (FEV1 >= 80%), Stage 2 (50-79%), Stage 3 (30-49%), Stage 4 (< 30%). ABCD assessment tool combining symptoms + exacerbation risk.
+VITAL_SIGNS_INDICATORS: Tachypnea, decreased oxygen saturation (< 92%), use of accessory respiratory muscles, barrel chest, prolonged expiration, pursed lip breathing, cyanosis
+LAB_INDICATORS: Elevated hemoglobin (polycythemia from chronic hypoxia), elevated bicarbonate (compensated respiratory acidosis on ABG), PaCO2 > 45 mmHg (hypercapnia), PaO2 < 60 mmHg (hypoxemia)
+RECOMMENDED_TESTS: Spirometry (pre and post-bronchodilator), Chest X-ray (hyperinflation, flattened diaphragm), CT scan of chest (emphysema quantification), Arterial blood gas (ABG), Alpha-1 antitrypsin level, Complete blood count, Pulse oximetry, 6-minute walk test, Diffusing capacity (DLCO)
+SPECIALIST: Pulmonologist
+URGENCY: moderate (high during acute exacerbation)
+TREATMENT_OVERVIEW: Smoking cessation (most important intervention), bronchodilators per GOLD: SABA/SAMA (Group A), LABA or LAMA (Group B), LABA+LAMA or LABA+ICS (Group E), triple therapy ICS+LABA+LAMA for frequent exacerbators, roflumilast (PDE4 inhibitor), oxygen therapy, pulmonary rehabilitation, lung volume reduction surgery, lung transplant
+COMPLICATIONS: Respiratory infections, pulmonary hypertension, right heart failure (cor pulmonale), lung cancer, depression, osteoporosis, respiratory failure
+WHO_GUIDELINE: WHO Package of Essential NCD Interventions includes spirometry for COPD diagnosis; WHO Essential Medicines list includes salbutamol, ipratropium, beclometasone; WHO COPD fact sheet estimates 3.23 million deaths globally (2019)
+CDC_MAPPING: CDC COPD data - 6th leading cause of death in US; affects ~16 million Americans diagnosed + millions undiagnosed; estimated $49 billion annual cost (CDC NCHS 2023)
+PUBMED_REFERENCES: PMID:30177816 (GOLD 2019 Report), PMID:27977475 (FLAME Trial - LABA+LAMA vs LABA+ICS), PMID:29323246 (IMPACT Trial - triple therapy)
+FOLLOW_UP_QUESTIONS: Are you a current or former smoker? How many pack-years? Do you have exposure to dust or chemicals at work? How far can you walk before getting short of breath? How many respiratory infections have you had in the past year? Do you use supplemental oxygen?
+
+---
+
+DISEASE: Tuberculosis (TB)
+ICD10: A15.0 - Tuberculosis of lung, confirmed by sputum microscopy; A16.9 - Respiratory tuberculosis unspecified; A19.9 - Miliary tuberculosis, unspecified
+CATEGORY: Pulmonology / Infectious Disease
+SYMPTOMS: Persistent cough lasting more than 3 weeks (WHO threshold for TB suspect), coughing up blood (hemoptysis), chest pain, unintentional weight loss, fatigue, fever, night sweats, loss of appetite, chills
+RISK_FACTORS: Close contact with TB patient, weakened immune system (HIV/AIDS - most important risk factor), travel to endemic areas (South-East Asia, Africa, Western Pacific), living in crowded conditions, healthcare workers, malnutrition, diabetes, substance abuse, silicosis
+DIAGNOSTIC_CRITERIA: Positive tuberculin skin test (Mantoux >= 10mm or >= 5mm in high risk), positive IGRA (QuantiFERON-TB Gold, T-SPOT.TB), chest X-ray showing upper lobe infiltrates/cavities, positive sputum AFB smear/culture (gold standard), GeneXpert MTB/RIF positive
+VITAL_SIGNS_INDICATORS: Low-grade fever (often afternoon/evening), tachycardia, weight loss, night sweats, cachexia
+LAB_INDICATORS: Positive AFB smear, positive MTB culture (Lowenstein-Jensen or MGIT), positive IGRA or TST, elevated ESR (> 30 mm/hr), lymphocytopenia, hyponatremia
+RECOMMENDED_TESTS: Tuberculin skin test (TST/Mantoux), Interferon-gamma release assay (IGRA), Chest X-ray, Sputum AFB smear and culture (3 specimens - spot, morning, spot), GeneXpert MTB/RIF (rapid molecular test), CT chest (if needed), HIV test (mandatory co-testing per WHO)
+SPECIALIST: Pulmonologist, Infectious Disease Specialist, Public Health
+URGENCY: high
+TREATMENT_OVERVIEW: Standard regimen per WHO: 2 months intensive phase RIPE (Rifampin + Isoniazid + Pyrazinamide + Ethambutol) followed by 4 months continuation phase (Rifampin + Isoniazid). DOT (Directly Observed Therapy) mandatory. MDR-TB requires bedaquiline-based regimens (BPaL). Latent TB: INH for 9 months or rifapentine+INH weekly x12 weeks (3HP)
+COMPLICATIONS: Miliary TB, TB meningitis, pleural effusion, pneumothorax, bronchiectasis, Addison's disease, spinal TB (Pott's disease)
+WHO_GUIDELINE: WHO End TB Strategy (target: 90% reduction in TB deaths by 2035); WHO Consolidated Guidelines on TB (2022) - rapid molecular diagnostics as initial test, shorter MDR-TB regimens; WHO estimates 10.6 million new TB cases globally (2022)
+CDC_MAPPING: CDC TB surveillance report - 8,300 TB cases reported in US (2022); TB remains leading infectious disease killer globally; CDC recommends targeted testing of high-risk populations
+PUBMED_REFERENCES: PMID:34003554 (WHO 2021 Consolidated TB Guidelines), PMID:32649857 (TB-PRACTECAL Trial - shorter MDR-TB regimens), PMID:28673435 (STREAM Stage 1 Trial)
+FOLLOW_UP_QUESTIONS: Have you been in contact with anyone diagnosed with tuberculosis? Have you traveled to areas where TB is common? Do you have HIV or take immunosuppressive medications? Have you had a TB test before? Do you live or work in crowded environments?

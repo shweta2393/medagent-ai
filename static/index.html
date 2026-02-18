@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAgent AI - Clinical Decision Support</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-heartbeat"></i>
+            <span>MedAgent AI</span>
+        </div>
+        <div class="nav-subtitle">Clinical Decision Support System</div>
+    </nav>
+
+    <main class="container">
+        <!-- Disclaimer Banner -->
+        <div class="disclaimer-banner">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>This is an AI-assisted tool for clinical decision support only. It is <strong>NOT</strong> a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider.</span>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="steps-indicator">
+            <div class="step active" data-step="1">
+                <div class="step-circle">1</div>
+                <span>Symptoms</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="2">
+                <div class="step-circle">2</div>
+                <span>Patient Info</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="3">
+                <div class="step-circle">3</div>
+                <span>Vitals & Labs</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="4">
+                <div class="step-circle">4</div>
+                <span>Results</span>
+            </div>
+        </div>
+
+        <!-- Step 1: Symptoms -->
+        <section class="form-step active" id="step-1">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-stethoscope"></i>
+                    <h2>Symptoms & Chief Complaint</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Symptoms <span class="required">*</span></label>
+                        <div class="symptom-input-wrapper">
+                            <input type="text" id="symptom-input" placeholder="Type a symptom and press Enter..." autocomplete="off">
+                            <button type="button" class="btn-icon" onclick="addSymptom()"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="tags-container" id="symptoms-tags"></div>
+                        <div class="common-symptoms">
+                            <span class="helper-text">Common symptoms:</span>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Fever')">Fever</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Headache')">Headache</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Cough')">Cough</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Fatigue')">Fatigue</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Chest pain')">Chest pain</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Shortness of breath')">Shortness of breath</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Nausea')">Nausea</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Dizziness')">Dizziness</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Joint pain')">Joint pain</button>
+                            <button type="button" class="chip" onclick="addQuickSymptom('Abdominal pain')">Abdominal pain</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Symptom Duration</label>
+                        <input type="text" id="duration" placeholder="e.g., 3 days, 2 weeks, 1 month">
+                    </div>
+                    <div class="form-group">
+                        <label for="additional-notes">Additional Notes</label>
+                        <textarea id="additional-notes" rows="3" placeholder="Any additional information about your symptoms..."></textarea>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div></div>
+                    <button class="btn btn-primary" onclick="nextStep(2)">Next: Patient Info <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Patient Info -->
+        <section class="form-step" id="step-2">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-user"></i>
+                    <h2>Patient Information</h2>
+                </div>
+                <div class="card-body">
+                    <div class="optional-hint">
+                        <i class="fas fa-info-circle"></i>
+                        All fields on this page are optional. Providing more information helps improve diagnosis accuracy.
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age <span class="optional-label">Optional</span></label>
+                            <input type="number" id="age" placeholder="Years" min="0" max="150">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender <span class="optional-label">Optional</span></label>
+                            <select id="gender">
+                                <option value="">Select...</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg) <span class="optional-label">Optional</span></label>
+                            <input type="number" id="weight" placeholder="kg" min="0" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="height">Height (cm) <span class="optional-label">Optional</span></label>
+                            <input type="number" id="height" placeholder="cm" min="0" step="0.1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Medical History <span class="optional-label">Optional</span></label>
+                        <div class="symptom-input-wrapper">
+                            <input type="text" id="history-input" placeholder="Type a condition and press Enter..." autocomplete="off">
+                            <button type="button" class="btn-icon" onclick="addHistory()"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="tags-container" id="history-tags"></div>
+                        <div class="common-symptoms">
+                            <span class="helper-text">Common conditions:</span>
+                            <button type="button" class="chip" onclick="addQuickHistory('Hypertension')">Hypertension</button>
+                            <button type="button" class="chip" onclick="addQuickHistory('Diabetes')">Diabetes</button>
+                            <button type="button" class="chip" onclick="addQuickHistory('Asthma')">Asthma</button>
+                            <button type="button" class="chip" onclick="addQuickHistory('Heart Disease')">Heart Disease</button>
+                            <button type="button" class="chip" onclick="addQuickHistory('Thyroid Disorder')">Thyroid Disorder</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Medications <span class="optional-label">Optional</span></label>
+                        <div class="symptom-input-wrapper">
+                            <input type="text" id="medication-input" placeholder="Type a medication and press Enter..." autocomplete="off">
+                            <button type="button" class="btn-icon" onclick="addMedication()"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="tags-container" id="medication-tags"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lifestyle">Lifestyle <span class="optional-label">Optional</span></label>
+                        <textarea id="lifestyle" rows="2" placeholder="Smoking, alcohol use, exercise habits, diet..."></textarea>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary" onclick="nextStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button class="btn btn-primary" onclick="nextStep(3)">Next: Vitals & Labs <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Vitals & Labs -->
+        <section class="form-step" id="step-3">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-heartbeat"></i>
+                    <h2>Vitals & Lab Reports</h2>
+                </div>
+                <div class="card-body">
+                    <div class="optional-hint">
+                        <i class="fas fa-info-circle"></i>
+                        All vitals and lab reports are optional. Skip any fields you don't have data for &mdash; the AI will analyze based on whatever information is available.
+                    </div>
+                    <h3 class="section-title"><i class="fas fa-chart-line"></i> Vital Signs <span class="optional-label">Optional</span></h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bp-systolic">BP Systolic (mmHg)</label>
+                            <input type="number" id="bp-systolic" placeholder="120" min="50" max="300">
+                        </div>
+                        <div class="form-group">
+                            <label for="bp-diastolic">BP Diastolic (mmHg)</label>
+                            <input type="number" id="bp-diastolic" placeholder="80" min="30" max="200">
+                        </div>
+                        <div class="form-group">
+                            <label for="heart-rate">Heart Rate (bpm)</label>
+                            <input type="number" id="heart-rate" placeholder="72" min="20" max="250">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="temperature">Temperature (°F)</label>
+                            <input type="number" id="temperature" placeholder="98.6" min="90" max="110" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="respiratory-rate">Respiratory Rate (/min)</label>
+                            <input type="number" id="respiratory-rate" placeholder="16" min="5" max="60">
+                        </div>
+                        <div class="form-group">
+                            <label for="spo2">SpO2 (%)</label>
+                            <input type="number" id="spo2" placeholder="98" min="50" max="100" step="0.1">
+                        </div>
+                    </div>
+
+                    <h3 class="section-title"><i class="fas fa-flask"></i> Lab Reports <span class="optional-label">Optional</span></h3>
+                    <p class="helper-text" style="margin-bottom: 0.75rem;">No lab reports? No problem &mdash; just click "Analyze with AI" to proceed with symptoms only.</p>
+                    <div id="lab-reports-container">
+                        <div class="lab-row">
+                            <input type="text" class="lab-name" placeholder="Lab test name (e.g., HbA1c)">
+                            <input type="text" class="lab-value" placeholder="Value (e.g., 7.2%)">
+                            <button type="button" class="btn-icon btn-danger" onclick="removeLabRow(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline" onclick="addLabRow()">
+                        <i class="fas fa-plus"></i> Add Lab Report
+                    </button>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary" onclick="nextStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button class="btn btn-primary btn-lg" onclick="submitDiagnosis()">
+                        <i class="fas fa-brain"></i> Analyze with AI
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: Results -->
+        <section class="form-step" id="step-4">
+            <!-- Loading -->
+            <div id="loading-section" class="loading-container" style="display: none;">
+                <div class="loading-animation">
+                    <div class="pulse-ring"></div>
+                    <i class="fas fa-brain loading-icon"></i>
+                </div>
+                <h3>Analyzing Patient Data...</h3>
+                <p>MedAgent AI is consulting the medical knowledge base and generating differential diagnoses.</p>
+            </div>
+
+            <!-- Results -->
+            <div id="results-section" style="display: none;">
+                <!-- Urgency Banner -->
+                <div id="urgency-banner" class="urgency-banner">
+                    <div class="urgency-content">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <div>
+                            <strong id="urgency-level-text">Urgency Level</strong>
+                            <p id="urgency-reasoning"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Predictions -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-diagnoses"></i>
+                        <h2>Differential Diagnoses</h2>
+                    </div>
+                    <div class="card-body" id="predictions-container"></div>
+                </div>
+
+                <!-- Recommended Tests -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-vial"></i>
+                        <h2>Recommended Tests</h2>
+                    </div>
+                    <div class="card-body" id="tests-container"></div>
+                </div>
+
+                <!-- Specialists -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-user-md"></i>
+                        <h2>Recommended Specialists</h2>
+                    </div>
+                    <div class="card-body" id="specialists-container"></div>
+                </div>
+
+                <!-- General Advice -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h2>General Advice</h2>
+                    </div>
+                    <div class="card-body" id="advice-container"></div>
+                </div>
+
+                <!-- Follow-up Questions -->
+                <div class="card" id="followup-card">
+                    <div class="card-header">
+                        <i class="fas fa-comments-alt"></i>
+                        <h2>Follow-up Questions</h2>
+                        <span class="badge">Helps refine diagnosis</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="helper-text">Answer these questions to help refine the diagnosis:</p>
+                        <div id="followup-questions-container"></div>
+                        <button class="btn btn-primary" id="submit-followup-btn" onclick="submitFollowUp()" style="margin-top: 1rem;">
+                            <i class="fas fa-paper-plane"></i> Submit Answers
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="actions-row">
+                    <button class="btn btn-secondary" onclick="resetForm()">
+                        <i class="fas fa-redo"></i> New Assessment
+                    </button>
+                    <button class="btn btn-outline" onclick="printResults()">
+                        <i class="fas fa-print"></i> Print Report
+                    </button>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="disclaimer-banner" style="margin-top: 1rem;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="result-disclaimer"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 MedAgent AI - Clinical Decision Support System. For educational and research purposes only.</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
