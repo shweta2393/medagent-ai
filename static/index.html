@@ -207,6 +207,26 @@
 
                     <h3 class="section-title"><i class="fas fa-flask"></i> Lab Reports <span class="optional-label">Optional</span></h3>
                     <p class="helper-text" style="margin-bottom: 0.75rem;">No lab reports? No problem &mdash; just click "Analyze with AI" to proceed with symptoms only. You can include both current and prior lab results.</p>
+
+                    <!-- File Upload Zone -->
+                    <div class="lab-upload-zone" id="lab-upload-zone"
+                         ondragover="handleLabDragOver(event)"
+                         ondragleave="handleLabDragLeave(event)"
+                         ondrop="handleLabDrop(event)"
+                         onclick="document.getElementById('lab-file-input').click()">
+                        <input type="file" id="lab-file-input" accept=".pdf,.jpg,.jpeg,.png,.txt,.csv" style="display:none" onchange="handleLabFileSelect(event)">
+                        <div class="lab-upload-content" id="lab-upload-content">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span class="lab-upload-text">Upload lab report</span>
+                            <span class="lab-upload-hint">PDF, JPG, PNG, TXT, CSV &mdash; drag &amp; drop or click to browse</span>
+                        </div>
+                        <div class="lab-upload-processing" id="lab-upload-processing" style="display:none">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <span>Extracting lab values...</span>
+                        </div>
+                    </div>
+                    <div id="lab-upload-result" class="lab-upload-result" style="display:none"></div>
+
                     <div class="lab-row-header">
                         <span>Test Name</span>
                         <span>Value</span>

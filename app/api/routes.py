@@ -1,6 +1,6 @@
 import logging
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, UploadFile, File
 
 from app.models.schemas import (
     DiagnosisRequest,
@@ -14,6 +14,7 @@ from app.models.schemas import (
 from app.services.diagnosis_engine import DiagnosisEngine
 from app.services.session_manager import SessionManager
 from app.services.chat_service import get_chat_service
+from app.services.lab_extractor import process_lab_file
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api", tags=["diagnosis"])
@@ -141,6 +142,47 @@ async def chat_history(session_id: str):
     if session is None:
         raise HTTPException(status_code=404, detail="Chat session not found")
     return {"session_id": session["id"], "messages": session["messages"]}
+
+
+MAX_UPLOAD_SIZE = 10 * 1024 * 1024  # 10 MB
+ALLOWED_TYPES = {
+    "application/pdf",
+    "image/jpeg", "image/jpg", "image/png",
+    "text/plain", "text/csv",
+}
+
+
+@router.post("/lab/extract")
+async def extract_lab_from_file(file: UploadFile = File(...)):
+    """Upload a lab report file and extract structured test results using LLM."""
+    content_type = (file.content_type or "").lower()
+    filename = file.filename or "unknown"
+
+    if content_type not in ALLOWED_TYPES:
+        ext = filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
+        ext_map = {"pdf": "application/pdf", "jpg": "image/jpeg", "jpeg": "image/jpeg",
+                    "png": "image/png", "txt": "text/plain", "csv": "text/csv"}
+        content_type = ext_map.get(ext, content_type)
+        if content_type not in ALLOWED_TYPES:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Unsupported file type. Accepted: PDF, JPG, PNG, TXT, CSV",
+            )
+
+    file_bytes = await file.read()
+    if len(file_bytes) > MAX_UPLOAD_SIZE:
+        raise HTTPException(status_code=400, detail="File too large. Maximum size is 10 MB.")
+    if len(file_bytes) == 0:
+        raise HTTPException(status_code=400, detail="Uploaded file is empty.")
+
+    try:
+        results = await process_lab_file(file_bytes, content_type, filename)
+        return {"status": "success", "count": len(results), "lab_values": results}
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    except Exception as e:
+        logger.exception("Error extracting lab values from %s", filename)
+        raise HTTPException(status_code=500, detail="Failed to extract lab values. Please try again or enter manually.")
 
 
 @router.get("/health")

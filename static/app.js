@@ -142,6 +142,117 @@ function removeLabRow(btn) {
     }
 }
 
+// --- Lab File Upload ---
+
+function handleLabDragOver(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    document.getElementById('lab-upload-zone').classList.add('drag-over');
+}
+
+function handleLabDragLeave(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    document.getElementById('lab-upload-zone').classList.remove('drag-over');
+}
+
+function handleLabDrop(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    document.getElementById('lab-upload-zone').classList.remove('drag-over');
+    const files = e.dataTransfer.files;
+    if (files.length > 0) handleLabUpload(files[0]);
+}
+
+function handleLabFileSelect(e) {
+    const files = e.target.files;
+    if (files.length > 0) handleLabUpload(files[0]);
+    e.target.value = '';
+}
+
+async function handleLabUpload(file) {
+    const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'text/plain', 'text/csv'];
+    const allowedExts = ['.pdf', '.jpg', '.jpeg', '.png', '.txt', '.csv'];
+    const ext = '.' + file.name.split('.').pop().toLowerCase();
+
+    if (!allowedTypes.includes(file.type) && !allowedExts.includes(ext)) {
+        showLabUploadResult('error', 'Unsupported file type. Accepted: PDF, JPG, PNG, TXT, CSV');
+        return;
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+        showLabUploadResult('error', 'File too large. Maximum size is 10 MB.');
+        return;
+    }
+
+    const zone = document.getElementById('lab-upload-zone');
+    const content = document.getElementById('lab-upload-content');
+    const processing = document.getElementById('lab-upload-processing');
+
+    content.style.display = 'none';
+    processing.style.display = 'flex';
+    zone.style.pointerEvents = 'none';
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+        const res = await fetch(`${API_BASE}/api/lab/extract`, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({ detail: 'Upload failed' }));
+            throw new Error(err.detail || `Server error (${res.status})`);
+        }
+
+        const data = await res.json();
+        autoPopulateLabRows(data.lab_values);
+        showLabUploadResult('success', `Extracted ${data.count} lab value${data.count !== 1 ? 's' : ''} from "${file.name}"`);
+    } catch (err) {
+        showLabUploadResult('error', err.message || 'Failed to extract lab values. Please try again or enter manually.');
+    } finally {
+        content.style.display = 'flex';
+        processing.style.display = 'none';
+        zone.style.pointerEvents = '';
+    }
+}
+
+function autoPopulateLabRows(labValues) {
+    const container = document.getElementById('lab-reports-container');
+
+    const existingRows = container.querySelectorAll('.lab-row');
+    const firstRow = existingRows[0];
+    const firstNameEmpty = firstRow && !firstRow.querySelector('.lab-name').value.trim();
+    if (firstNameEmpty && existingRows.length === 1) {
+        container.innerHTML = '';
+    }
+
+    labValues.forEach(lab => {
+        const row = document.createElement('div');
+        row.className = 'lab-row';
+        row.innerHTML = `
+            <input type="text" class="lab-name" placeholder="e.g., HbA1c" value="${escapeHtml(lab.name || '')}">
+            <input type="text" class="lab-value" placeholder="e.g., 7.2%" value="${escapeHtml(lab.value || '')}">
+            <input type="text" class="lab-when" placeholder="e.g., Today, 2 weeks ago" value="${escapeHtml(lab.when || '')}">
+            <button type="button" class="btn-icon btn-danger" onclick="removeLabRow(this)"><i class="fas fa-times"></i></button>
+        `;
+        container.appendChild(row);
+    });
+}
+
+function showLabUploadResult(type, message) {
+    const el = document.getElementById('lab-upload-result');
+    el.className = `lab-upload-result ${type}`;
+    const icon = type === 'success' ? 'check-circle' : 'exclamation-circle';
+    el.innerHTML = `<i class="fas fa-${icon}"></i> ${escapeHtml(message)}`;
+    el.style.display = 'flex';
+    if (type === 'success') {
+        setTimeout(() => { el.style.display = 'none'; }, 8000);
+    }
+}
+
 // --- Build Request ---
 
 function buildRequest() {
