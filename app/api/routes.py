@@ -8,9 +8,12 @@ from app.models.schemas import (
     FollowUpRequest,
     FollowUpResponse,
     SessionResponse,
+    ChatRequest,
+    ChatResponse,
 )
 from app.services.diagnosis_engine import DiagnosisEngine
 from app.services.session_manager import SessionManager
+from app.services.chat_service import get_chat_service
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api", tags=["diagnosis"])
@@ -107,6 +110,37 @@ async def get_session(session_id: str):
 async def list_sessions():
     """List all active diagnosis sessions."""
     return _get_sessions().list_sessions()
+
+
+@router.post("/chat", response_model=ChatResponse)
+async def chat(request: ChatRequest):
+    """Send a message to the medical chatbot and get a RAG-grounded response."""
+    try:
+        result = get_chat_service().chat(
+            message=request.message,
+            session_id=request.session_id,
+        )
+        return result
+    except RuntimeError as e:
+        detail = str(e)
+        if "quota" in detail.lower() or "rate" in detail.lower():
+            raise HTTPException(
+                status_code=429,
+                detail="AI service rate limit reached. Please wait 1-2 minutes and try again.",
+            )
+        raise HTTPException(status_code=502, detail=detail)
+    except Exception as e:
+        logger.exception("Unexpected error in chat")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/chat/history/{session_id}")
+async def chat_history(session_id: str):
+    """Retrieve the message history for a chat session."""
+    session = _get_sessions().get_chat_session(session_id)
+    if session is None:
+        raise HTTPException(status_code=404, detail="Chat session not found")
+    return {"session_id": session["id"], "messages": session["messages"]}
 
 
 @router.get("/health")

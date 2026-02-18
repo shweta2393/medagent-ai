@@ -206,11 +206,18 @@
                     </div>
 
                     <h3 class="section-title"><i class="fas fa-flask"></i> Lab Reports <span class="optional-label">Optional</span></h3>
-                    <p class="helper-text" style="margin-bottom: 0.75rem;">No lab reports? No problem &mdash; just click "Analyze with AI" to proceed with symptoms only.</p>
+                    <p class="helper-text" style="margin-bottom: 0.75rem;">No lab reports? No problem &mdash; just click "Analyze with AI" to proceed with symptoms only. You can include both current and prior lab results.</p>
+                    <div class="lab-row-header">
+                        <span>Test Name</span>
+                        <span>Value</span>
+                        <span>When <span class="optional-label">Optional</span></span>
+                        <span></span>
+                    </div>
                     <div id="lab-reports-container">
                         <div class="lab-row">
-                            <input type="text" class="lab-name" placeholder="Lab test name (e.g., HbA1c)">
-                            <input type="text" class="lab-value" placeholder="Value (e.g., 7.2%)">
+                            <input type="text" class="lab-name" placeholder="e.g., HbA1c">
+                            <input type="text" class="lab-value" placeholder="e.g., 7.2%">
+                            <input type="text" class="lab-when" placeholder="e.g., Today, 2 weeks ago">
                             <button type="button" class="btn-icon btn-danger" onclick="removeLabRow(this)"><i class="fas fa-times"></i></button>
                         </div>
                     </div>
@@ -326,6 +333,53 @@
     <footer class="footer">
         <p>&copy; 2026 MedAgent AI - Clinical Decision Support System. For educational and research purposes only.</p>
     </footer>
+
+    <!-- Chat Widget -->
+    <button id="chat-toggle" class="chat-toggle" onclick="toggleChat()" title="Medical Assistant Chat">
+        <i class="fas fa-comment-medical" id="chat-toggle-icon"></i>
+        <span class="chat-toggle-badge" id="chat-badge" style="display:none;"></span>
+    </button>
+
+    <div id="chat-panel" class="chat-panel">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <div class="chat-header-title">MedAgent Chat</div>
+                    <div class="chat-header-status" id="chat-status">Ask me anything about health</div>
+                </div>
+            </div>
+            <div class="chat-header-actions">
+                <button class="chat-header-btn" id="chat-home-btn" onclick="chatGoHome()" title="Home" style="display:none;">
+                    <i class="fas fa-home"></i>
+                </button>
+                <button class="chat-header-btn" onclick="startNewChat()" title="New Chat">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="chat-header-btn" onclick="toggleChat()" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-welcome">
+                <div class="chat-welcome-icon"><i class="fas fa-heartbeat"></i></div>
+                <h4>Welcome to MedAgent Chat</h4>
+                <p>Ask me about symptoms, diseases, medications, or general health questions. I'll use our medical knowledge base to help you.</p>
+                <div class="chat-suggestions">
+                    <button class="chat-suggestion" onclick="sendSuggestion('What are the common symptoms of diabetes?')">Symptoms of diabetes</button>
+                    <button class="chat-suggestion" onclick="sendSuggestion('What causes high blood pressure?')">Causes of high BP</button>
+                    <button class="chat-suggestion" onclick="sendSuggestion('When should I see a doctor for a headache?')">When to see a doctor</button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-input-bar">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Type your health question..." autocomplete="off">
+            <button id="chat-send-btn" class="chat-send-btn" onclick="sendChatMessage()" title="Send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
 
     <script src="/static/app.js"></script>
 </body>

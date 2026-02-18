@@ -102,7 +102,12 @@ def _format_patient_context(req: DiagnosisRequest) -> str:
         parts.append(f"**Current Medications**: {', '.join(req.current_medications)}")
 
     if req.lab_reports:
-        lab_lines = [f"  - {k}: {v}" for k, v in req.lab_reports.items()]
+        lab_lines = []
+        for lab in req.lab_reports:
+            line = f"  - {lab.name}: {lab.value}"
+            if lab.when:
+                line += f" (taken: {lab.when})"
+            lab_lines.append(line)
         parts.append(f"**Lab Reports**:\n" + "\n".join(lab_lines))
 
     if req.lifestyle:
@@ -110,6 +115,18 @@ def _format_patient_context(req: DiagnosisRequest) -> str:
 
     if req.additional_notes:
         parts.append(f"**Additional Notes**: {req.additional_notes}")
+
+    missing = []
+    if not req.patient_info or (req.patient_info.age is None and not req.patient_info.gender):
+        missing.append("patient demographics (age, gender)")
+    if not req.vitals:
+        missing.append("vital signs")
+    if not req.lab_reports:
+        missing.append("lab reports")
+    if not req.medical_history:
+        missing.append("medical history")
+    if missing:
+        parts.append(f"**Not provided**: {', '.join(missing)} — consider asking about these in follow-up questions")
 
     return "\n".join(parts)
 

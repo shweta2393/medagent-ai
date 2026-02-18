@@ -1,6 +1,7 @@
 # MedAgent AI - GenAI Disease Diagnosis Assistant
 
 A GenAI-powered **Clinical Decision Support System** built with FastAPI and RAG (Retrieval-Augmented Generation) that analyzes patient symptoms, vitals, lab reports, and medical history to provide differential diagnoses with confidence scores.
+Screenshots from local run are available in: docs/ui-screenshots.pdf
 
 > **Disclaimer**: This is an AI-assisted tool for educational and research purposes only. It is NOT a substitute for professional medical advice, diagnosis, or treatment.
 

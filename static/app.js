@@ -126,8 +126,9 @@ function addLabRow() {
     const row = document.createElement('div');
     row.className = 'lab-row';
     row.innerHTML = `
-        <input type="text" class="lab-name" placeholder="Lab test name (e.g., HbA1c)">
-        <input type="text" class="lab-value" placeholder="Value (e.g., 7.2%)">
+        <input type="text" class="lab-name" placeholder="e.g., HbA1c">
+        <input type="text" class="lab-value" placeholder="e.g., 7.2%">
+        <input type="text" class="lab-when" placeholder="e.g., Today, 2 weeks ago">
         <button type="button" class="btn-icon btn-danger" onclick="removeLabRow(this)"><i class="fas fa-times"></i></button>
     `;
     container.appendChild(row);
@@ -187,13 +188,18 @@ function buildRequest() {
     }
 
     const labRows = document.querySelectorAll('#lab-reports-container .lab-row');
-    const labs = {};
+    const labs = [];
     labRows.forEach(row => {
         const name = row.querySelector('.lab-name').value.trim();
         const value = row.querySelector('.lab-value').value.trim();
-        if (name && value) labs[name] = value;
+        const when = row.querySelector('.lab-when') ? row.querySelector('.lab-when').value.trim() : '';
+        if (name && value) {
+            const lab = { name, value };
+            if (when) lab.when = when;
+            labs.push(lab);
+        }
     });
-    if (Object.keys(labs).length > 0) req.lab_reports = labs;
+    if (labs.length > 0) req.lab_reports = labs;
 
     if (currentSessionId) req.session_id = currentSessionId;
 
@@ -481,8 +487,9 @@ function resetForm() {
     const labContainer = document.getElementById('lab-reports-container');
     labContainer.innerHTML = `
         <div class="lab-row">
-            <input type="text" class="lab-name" placeholder="Lab test name (e.g., HbA1c)">
-            <input type="text" class="lab-value" placeholder="Value (e.g., 7.2%)">
+            <input type="text" class="lab-name" placeholder="e.g., HbA1c">
+            <input type="text" class="lab-value" placeholder="e.g., 7.2%">
+            <input type="text" class="lab-when" placeholder="e.g., Today, 2 weeks ago">
             <button type="button" class="btn-icon btn-danger" onclick="removeLabRow(this)"><i class="fas fa-times"></i></button>
         </div>
     `;
@@ -495,3 +502,210 @@ function resetForm() {
 function printResults() {
     window.print();
 }
+
+// ===================== CHATBOT =====================
+
+let chatSessionId = null;
+let chatOpen = false;
+let chatSending = false;
+let chatBubbles = []; // stored bubbles so we can toggle between home and conversation view
+
+function toggleChat() {
+    chatOpen = !chatOpen;
+    const panel = document.getElementById('chat-panel');
+    const toggle = document.getElementById('chat-toggle');
+    const icon = document.getElementById('chat-toggle-icon');
+
+    panel.classList.toggle('open', chatOpen);
+    toggle.classList.toggle('open', chatOpen);
+    icon.className = chatOpen ? 'fas fa-times' : 'fas fa-comment-medical';
+
+    if (chatOpen) {
+        const badge = document.getElementById('chat-badge');
+        badge.style.display = 'none';
+        setTimeout(() => document.getElementById('chat-input').focus(), 100);
+    }
+}
+
+function chatGoHome() {
+    const container = document.getElementById('chat-messages');
+    container.innerHTML = getChatWelcomeHTML();
+    updateChatHomeBtn();
+}
+
+function updateChatHomeBtn() {
+    const btn = document.getElementById('chat-home-btn');
+    btn.style.display = chatBubbles.length > 0 ? '' : 'none';
+}
+
+function getChatWelcomeHTML() {
+    let html = `
+        <div class="chat-welcome">
+            <div class="chat-welcome-icon"><i class="fas fa-heartbeat"></i></div>
+            <h4>Welcome to MedAgent Chat</h4>
+            <p>Ask me about symptoms, diseases, medications, or general health questions. I'll use our medical knowledge base to help you.</p>
+            <div class="chat-suggestions">
+                <button class="chat-suggestion" onclick="sendSuggestion('What are the common symptoms of diabetes?')">Symptoms of diabetes</button>
+                <button class="chat-suggestion" onclick="sendSuggestion('What causes high blood pressure?')">Causes of high BP</button>
+                <button class="chat-suggestion" onclick="sendSuggestion('When should I see a doctor for a headache?')">When to see a doctor</button>
+            </div>
+        </div>`;
+    if (chatBubbles.length > 0) {
+        html += `
+        <button class="chat-resume-btn" onclick="chatResumeConversation()">
+            <i class="fas fa-comments"></i> Resume previous conversation (${chatBubbles.length} messages)
+        </button>`;
+    }
+    return html;
+}
+
+function chatResumeConversation() {
+    const container = document.getElementById('chat-messages');
+    container.innerHTML = '';
+    chatBubbles.forEach(b => container.appendChild(b.cloneNode(true)));
+    container.scrollTop = container.scrollHeight;
+    updateChatHomeBtn();
+}
+
+function sendSuggestion(text) {
+    document.getElementById('chat-input').value = text;
+    sendChatMessage();
+}
+
+async function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    if (!message || chatSending) return;
+
+    hideWelcome();
+    appendChatBubble('user', message);
+    input.value = '';
+    chatSending = true;
+    updateSendButton(true);
+    showTypingIndicator();
+
+    try {
+        const body = { message };
+        if (chatSessionId) body.session_id = chatSessionId;
+
+        const res = await fetch(`${API_BASE}/api/chat`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        });
+
+        hideTypingIndicator();
+
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({ detail: 'Unknown error' }));
+            if (res.status === 429) {
+                appendChatBubble('bot', 'I\'m currently rate-limited. Please wait a minute and try again.', []);
+            } else {
+                appendChatBubble('bot', 'Sorry, something went wrong. Please try again.', []);
+            }
+            return;
+        }
+
+        const data = await res.json();
+        chatSessionId = data.session_id;
+        appendChatBubble('bot', data.reply, data.sources || []);
+    } catch (err) {
+        hideTypingIndicator();
+        appendChatBubble('bot', 'Could not reach the server. Please check if the backend is running.', []);
+    } finally {
+        chatSending = false;
+        updateSendButton(false);
+    }
+}
+
+function hideWelcome() {
+    const container = document.getElementById('chat-messages');
+    const welcome = container.querySelector('.chat-welcome');
+    if (welcome) welcome.remove();
+    const resumeBtn = container.querySelector('.chat-resume-btn');
+    if (resumeBtn) resumeBtn.remove();
+    // If returning from home, restore existing bubbles first
+    if (chatBubbles.length > 0 && container.querySelectorAll('.chat-bubble').length === 0) {
+        chatBubbles.forEach(b => container.appendChild(b.cloneNode(true)));
+    }
+}
+
+function appendChatBubble(role, text, sources) {
+    const container = document.getElementById('chat-messages');
+    const bubble = document.createElement('div');
+    bubble.className = `chat-bubble ${role}`;
+
+    if (role === 'bot') {
+        bubble.innerHTML = formatBotMessage(text);
+        if (sources && sources.length > 0) {
+            const sourcesDiv = document.createElement('div');
+            sourcesDiv.className = 'chat-sources';
+            sources.forEach(s => {
+                const tag = document.createElement('span');
+                tag.className = 'chat-source-tag';
+                tag.textContent = s;
+                sourcesDiv.appendChild(tag);
+            });
+            bubble.appendChild(sourcesDiv);
+        }
+    } else {
+        bubble.textContent = text;
+    }
+
+    container.appendChild(bubble);
+    chatBubbles.push(bubble.cloneNode(true));
+    container.scrollTop = container.scrollHeight;
+    updateChatHomeBtn();
+}
+
+function formatBotMessage(text) {
+    let html = escapeHtml(text);
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\n- /g, '\n&bull; ');
+    html = html.replace(/\n\d+\.\s/g, match => '\n' + match.trim() + ' ');
+    html = html.replace(/\n/g, '<br>');
+    return html;
+}
+
+function showTypingIndicator() {
+    const container = document.getElementById('chat-messages');
+    const existing = container.querySelector('.chat-typing');
+    if (existing) return;
+
+    const typing = document.createElement('div');
+    typing.className = 'chat-typing';
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    container.appendChild(typing);
+    container.scrollTop = container.scrollHeight;
+}
+
+function hideTypingIndicator() {
+    const typing = document.querySelector('.chat-typing');
+    if (typing) typing.remove();
+}
+
+function updateSendButton(sending) {
+    const btn = document.getElementById('chat-send-btn');
+    btn.disabled = sending;
+    btn.innerHTML = sending
+        ? '<i class="fas fa-spinner fa-spin"></i>'
+        : '<i class="fas fa-paper-plane"></i>';
+}
+
+function startNewChat() {
+    chatSessionId = null;
+    chatBubbles = [];
+    const container = document.getElementById('chat-messages');
+    container.innerHTML = getChatWelcomeHTML();
+    updateChatHomeBtn();
+}
+
+// Chat Enter key support
+document.addEventListener('DOMContentLoaded', () => {
+    const chatInput = document.getElementById('chat-input');
+    if (chatInput) {
+        chatInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') { e.preventDefault(); sendChatMessage(); }
+        });
+    }
+});

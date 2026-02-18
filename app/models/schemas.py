@@ -26,6 +26,12 @@ class Vitals(BaseModel):
     oxygen_saturation: Optional[float] = Field(None, description="SpO2 percentage")
 
 
+class LabReport(BaseModel):
+    name: str = Field(..., description="Lab test name, e.g. HbA1c")
+    value: str = Field(..., description="Test result value, e.g. 7.2%")
+    when: Optional[str] = Field(None, description="When the test was taken, e.g. 'Today', '2 weeks ago'")
+
+
 class DiagnosisRequest(BaseModel):
     session_id: Optional[str] = None
     symptoms: list[str] = Field(..., min_length=1, description="List of symptoms")
@@ -34,7 +40,7 @@ class DiagnosisRequest(BaseModel):
     vitals: Optional[Vitals] = None
     medical_history: Optional[list[str]] = Field(default=None, description="Past conditions")
     current_medications: Optional[list[str]] = Field(default=None, description="Current meds")
-    lab_reports: Optional[dict[str, str]] = Field(default=None, description="Lab name -> value")
+    lab_reports: Optional[list[LabReport]] = Field(default=None, description="Lab test results with optional dates")
     lifestyle: Optional[str] = Field(None, description="Smoking, alcohol, exercise, diet")
     additional_notes: Optional[str] = None
 
@@ -93,3 +99,20 @@ class SessionResponse(BaseModel):
     session_id: str
     interactions: list[dict]
     current_predictions: Optional[list[DiseasePrediction]] = None
+
+
+class ChatRequest(BaseModel):
+    message: str = Field(..., min_length=1, description="User message")
+    session_id: Optional[str] = Field(None, description="Chat session ID for conversation continuity")
+
+
+class ChatMessage(BaseModel):
+    role: str
+    content: str
+    timestamp: Optional[float] = None
+
+
+class ChatResponse(BaseModel):
+    reply: str
+    session_id: str
+    sources: list[str] = Field(default_factory=list, description="RAG topics used to ground the response")
