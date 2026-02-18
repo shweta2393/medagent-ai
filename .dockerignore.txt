@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+env/
+
+# Local databases / embeddings
+chroma_db/
+*.sqlite3
+
+# Environment variables
+.env
+.env.*
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docs and extras
+docs/
+README.md
