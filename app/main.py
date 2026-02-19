@@ -1,5 +1,4 @@
 import logging
-from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,17 +14,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    logger.info("Starting MedAgent AI - initializing services...")
-    from app.services.rag_service import get_rag_service
-    get_rag_service()
-    logger.info("RAG service ready")
-    yield
-    logger.info("Shutting down MedAgent AI")
-
-
 app = FastAPI(
     title="MedAgent AI",
     description=(
@@ -34,7 +22,6 @@ app = FastAPI(
         "to provide differential diagnoses with confidence scores."
     ),
     version="1.0.0",
-    lifespan=lifespan,
 )
 
 app.add_middleware(

@@ -1,9 +1,9 @@
+numpy>=1.26,<2.0
+
 fastapi>=0.110,<0.116
 uvicorn[standard]>=0.27,<0.35
 python-dotenv>=1.0
-# Pydantic: allow v2, but keep v1 compatibility layer intact
 pydantic>=2.7,<3
-# Chroma: stay on stable line that works with Pydantic v1 shim
 chromadb>=0.4.24,<0.6.0
 sentence-transformers>=3.3,<3.5
 groq>=0.13.0
@@ -12,3 +12,5 @@ google-api-core>=2.21.0
 pdfplumber>=0.10,<0.12
 python-multipart>=0.0.9
 
+torch==2.2.2+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
