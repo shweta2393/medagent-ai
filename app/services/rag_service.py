@@ -37,11 +37,12 @@ class RAGService:
         if self._initialized:
             return
 
-        logger.info("Initializing RAG service (lightweight)...")
+        logger.info("Initializing RAG service (lightweight, lazy embeddings)...")
 
-        # ⚠️ DO NOT load model here
+        # ✅ Lazy-loaded model (keep this)
         self.embedding_model = None
 
+        # ✅ Chroma client (NO default embedding)
         self.chroma_client = chromadb.Client(
             Settings(
                 anonymized_telemetry=False,
@@ -50,8 +51,11 @@ class RAGService:
             )
         )
 
+        # 🔥 CRITICAL FIX:
+        # embedding_function=None prevents Chroma from loading ONNX
         self.collection = self.chroma_client.get_or_create_collection(
             name=COLLECTION_NAME,
+            embedding_function=None,
             metadata={"hnsw:space": "cosine"},
         )
 
